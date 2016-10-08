@@ -16,5 +16,18 @@ export function es5() {
 }
 
 export function es6() {
+    var o = {
+    list: [1, 2, 3, 4, 5],
+    result: 0,
+    sum: function() {
+      var that = this
+      this.list.forEach((val) => {
+        that.result += val
+      })
+    }
+  }
 
+  o.sum()
+
+  return o
 }

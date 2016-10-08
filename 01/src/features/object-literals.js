@@ -8,4 +8,10 @@ export function es5() {
 }
 
 export function es6() {
+	return {
+		i: 0,
+		next() {
+			return this.i += 1
+		}
+	}
 }

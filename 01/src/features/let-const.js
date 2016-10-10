@@ -27,9 +27,11 @@ export function es5() {
 export function es6() {
     let o = {}
 
+    const power = 2
+
     function constants(val) {
 
-        return Math.pow(2, val)
+        return Math.pow(power, val)
     }
 
     function scope(n)  {

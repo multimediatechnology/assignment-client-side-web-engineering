@@ -10,7 +10,7 @@ export default function() {
     o['key'].should.eql('value')
   })
 
-  it.skip('should show symbols syntax and behavior in ES6', () => {
+  it('should show symbols syntax and behavior in ES6', () => {
     const o = es6()
     const s = Symbol('key')
     should(o['key']).eql(undefined)

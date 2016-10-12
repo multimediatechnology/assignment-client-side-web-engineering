@@ -5,6 +5,7 @@ export function es5(cb) {
 }
 
 export function es6() {
-    const val = 10
-    return Promise.resolve(val)
+    return new Promise((resolve, reject) => {
+       setTimeout(resolve, 1, 10)
+    })
 }

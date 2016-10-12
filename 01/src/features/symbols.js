@@ -1,10 +1,8 @@
 export function es5() {
-  var Symbol = function(val) {
-    this.key = val
-  }
-
-  var s = new Symbol('1')
-
+  const s = 'key'
+  const o = {}
+  o[s] = 'value'
+  return o
 }
 
 export function es6() {

@@ -1,4 +1,4 @@
-import uuidGenerator from '../utils'
+import {uuid} from '../utils/index'
 
 export function es5() {
   var module = require('../utils')
@@ -6,5 +6,5 @@ export function es5() {
 }
 
 export function es6() {
-	return uuidGenerator.uuid()
+	return uuid()
 }

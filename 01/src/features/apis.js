@@ -10,4 +10,10 @@ export function es5(list, val) {
 }
 
 export function es6(list, val) {
+	if(list.includes(val)) {
+		return true
+	}
+	else {
+		return false
+	}
 }

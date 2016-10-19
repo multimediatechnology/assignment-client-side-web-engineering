@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import Handlebars from 'handlebars'
 import {ENTER_KEY, ESCAPE_KEY} from './consts'
-import util from './util'
+import * as util from './util'
 
 export default class Appclass {
     constructor() {

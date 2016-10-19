@@ -1,102 +1,106 @@
+import $ from 'jquery'
+import Handlebars from 'handlebars'
+import {ENTER_KEY, ESCAPE_KEY} from './consts'
+import util from './util'
+
 export default class Appclass {
-    constructor(___this) {
-      let ____this = ___this
-        __this.todos = util.store('todos-jquery');
-        __this.cacheElements();
-        __this.bindEvents();
+    constructor() {
+        this.todos = util.store('todos-jquery');
+        this.cacheElements();
+        this.bindEvents();
 
         new Router({
             '/:filter': function(filter) {
-                __this.filter = filter;
-                __this.render();
-            }.bind(__this)
+                this.filter = filter;
+                this.render();
+            }.bind(this)
         }).init('/all');
     }
     cacheElements() {
-        __this.todoTemplate = Handlebars.compile($('#todo-template').html());
-        __this.footerTemplate = Handlebars.compile($('#footer-template').html());
-        __this.$todoApp = $('#todoapp');
-        __this.$header = __this.$todoApp.find('#header');
-        __this.$main = __this.$todoApp.find('#main');
-        __this.$footer = __this.$todoApp.find('#footer');
-        __this.$newTodo = __this.$header.find('#new-todo');
-        __this.$toggleAll = __this.$main.find('#toggle-all');
-        __this.$todoList = __this.$main.find('#todo-list');
-        __this.$count = __this.$footer.find('#todo-count');
-        __this.$clearBtn = __this.$footer.find('#clear-completed');
+        this.todoTemplate = Handlebars.compile($('#todo-template').html());
+        this.footerTemplate = Handlebars.compile($('#footer-template').html());
+        this.$todoApp = $('#todoapp');
+        this.$header = this.$todoApp.find('#header');
+        this.$main = this.$todoApp.find('#main');
+        this.$footer = this.$todoApp.find('#footer');
+        this.$newTodo = this.$header.find('#new-todo');
+        this.$toggleAll = this.$main.find('#toggle-all');
+        this.$todoList = this.$main.find('#todo-list');
+        this.$count = this.$footer.find('#todo-count');
+        this.$clearBtn = this.$footer.find('#clear-completed');
     }
     bindEvents() {
-        var list = __this.$todoList;
-        __this.$newTodo.on('keyup', __this.create.bind(__this));
-        __this.$toggleAll.on('change', __this.toggleAll.bind(__this));
-        __this.$footer.on('click', '#clear-completed', __this.destroyCompleted.bind(__this));
-        list.on('change', '.toggle', __this.toggle.bind(__this));
-        list.on('dblclick', 'label', __this.edit.bind(__this));
-        list.on('keyup', '.edit', __this.editKeyup.bind(__this));
-        list.on('focusout', '.edit', __this.update.bind(__this));
-        list.on('click', '.destroy', __this.destroy.bind(__this));
+        var list = this.$todoList;
+        this.$newTodo.on('keyup', this.create.bind(this));
+        this.$toggleAll.on('change', this.toggleAll.bind(this));
+        this.$footer.on('click', '#clear-completed', this.destroyCompleted.bind(this));
+        list.on('change', '.toggle', this.toggle.bind(this));
+        list.on('dblclick', 'label', this.edit.bind(this));
+        list.on('keyup', '.edit', this.editKeyup.bind(this));
+        list.on('focusout', '.edit', this.update.bind(this));
+        list.on('click', '.destroy', this.destroy.bind(this));
     }
     render() {
-        var todos = __this.getFilteredTodos();
-        __this.$todoList.html(__this.todoTemplate(todos));
-        __this.$main.toggle(todos.length > 0);
-        __this.$toggleAll.prop('checked', __this.getActiveTodos().length === 0);
-        __this.renderFooter();
-        __this.$newTodo.focus();
-        util.store('todos-jquery', __this.todos);
+        var todos = this.getFilteredTodos();
+        this.$todoList.html(this.todoTemplate(todos));
+        this.$main.toggle(todos.length > 0);
+        this.$toggleAll.prop('checked', this.getActiveTodos().length === 0);
+        this.renderFooter();
+        this.$newTodo.focus();
+        util.store('todos-jquery', this.todos);
     }
     renderFooter() {
-        var todoCount = __this.todos.length;
-        var activeTodoCount = __this.getActiveTodos().length;
-        var template = __this.footerTemplate({
+        var todoCount = this.todos.length;
+        var activeTodoCount = this.getActiveTodos().length;
+        var template = this.footerTemplate({
             activeTodoCount: activeTodoCount,
             activeTodoWord: util.pluralize(activeTodoCount, 'item'),
             completedTodos: todoCount - activeTodoCount,
-            filter: __this.filter
+            filter: this.filter
         });
 
-        __this.$footer.toggle(todoCount > 0).html(template);
+        this.$footer.toggle(todoCount > 0).html(template);
     }
     toggleAll(e) {
         var isChecked = $(e.target).prop('checked');
 
-        __this.todos.forEach(function(todo) {
+        this.todos.forEach(function(todo) {
             todo.completed = isChecked;
         });
 
-        __this.render();
+        this.render();
     }
     getActiveTodos() {
-        return __this.todos.filter(function(todo) {
+        return this.todos.filter(function(todo) {
             return !todo.completed;
         });
     }
     getCompletedTodos() {
-        return __this.todos.filter(function(todo) {
+        return this.todos.filter(function(todo) {
             return todo.completed;
         });
     }
     getFilteredTodos() {
-        if (__this.filter === 'active') {
-            return __this.getActiveTodos();
+        if (this.filter === 'active') {
+            return this.getActiveTodos();
         }
 
-        if (__this.filter === 'completed') {
-            return __this.getCompletedTodos();
+        if (this.filter === 'completed') {
+            return this.getCompletedTodos();
         }
 
-        return __this.todos;
+        return this.todos;
     }
     destroyCompleted() {
-            __this.todos = __this.getActiveTodos();
-            __this.filter = 'all';
-            __this.render();
+            this.todos = this.getActiveTodos();
+            this.filter = 'all';
+            this.render();
         }
         // accepts an element from inside the `.item` div and
         // returns the corresponding index in the `todos` array
     indexFromEl(el) {
         var id = $(el).closest('li').data('id');
-        var todos = __this.todos;
+        var todos = this.todos;
         var i = todos.length;
 
         while (i--) {
@@ -113,7 +117,7 @@ export default class Appclass {
             return;
         }
 
-        __this.todos.push({
+        this.todos.push({
             id: util.uuid(),
             title: val,
             completed: false
@@ -121,12 +125,12 @@ export default class Appclass {
 
         $input.val('');
 
-        __this.render();
+        this.render();
     }
     toggle(e) {
-        var i = __this.indexFromEl(e.target);
-        __this.todos[i].completed = !__this.todos[i].completed;
-        __this.render();
+        var i = this.indexFromEl(e.target);
+        this.todos[i].completed = !this.todos[i].completed;
+        this.render();
     }
     edit(e) {
         var $input = $(e.target).closest('li').addClass('editing').find('.edit');
@@ -148,22 +152,22 @@ export default class Appclass {
 
         if ($el.data('abort')) {
             $el.data('abort', false);
-            __this.render();
+            this.render();
             return;
         }
 
-        var i = __this.indexFromEl(el);
+        var i = this.indexFromEl(el);
 
         if (val) {
-            __this.todos[i].title = val;
+            this.todos[i].title = val;
         } else {
-            __this.todos.splice(i, 1);
+            this.todos.splice(i, 1);
         }
 
-        __this.render();
+        this.render();
     }
     destroy(e) {
-        __this.todos.splice(__this.indexFromEl(e.target), 1);
-        __this.render();
+        this.todos.splice(this.indexFromEl(e.target), 1);
+        this.render();
     }
 }

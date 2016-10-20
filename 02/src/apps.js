@@ -1,7 +1,8 @@
+//import everything needed
 import $ from 'jquery'
 import Handlebars from 'handlebars'
 import { ESCAPE_KEY, ENTER_KEY } from './const';
-import { uuid, pluralize, store} from './utils';
+import * as util from './utils';
 
 export default class Apps {         
   constructor() {

@@ -1,11 +1,9 @@
-import Handlebars from 'handlebars'
+//import helper
+import helper from './helper'
+helper()
 
-Handlebars.registerHelper('eq', function(a, b, options) {
-  return a === b ? options.fn(this) : options.inverse(this)
-})
-
-//Import App_class
+//import app_class
 import Apps from './apps'
 
-//Create App   
+//create app   
 var app = new Apps()

@@ -6,4 +6,9 @@ export function es5() {
 }
 
 export function es6() {
+	const s = Symbol('key')
+	const o = {
+		[s]: 'value'
+	}
+	return 0 
 }

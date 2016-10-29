@@ -1,5 +1,4 @@
 import Appclass from './appclass'
-import registerHandlebars from './registerHandlebars'
-registerHandlebars()
+import './register-handlebars'
 
 let App = new Appclass()

@@ -22,7 +22,7 @@ export default function() {
 
     o.rest('x', 'y', 'z').should.eql('x,y,z')
 
-    o.spread([1, 2, 3]).should.eql(6)
-    o.spread([1, 2]).should.eql(3)
+    o.spread(...[1, 2, 3]).should.eql(6)
+    o.spread(...[1, 2]).should.eql(3)
   })
 }

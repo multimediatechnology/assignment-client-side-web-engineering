@@ -25,7 +25,6 @@ export function es5() {
 }
 
 export function es6() {
-    let o = {}
 
     const power = 2
 
@@ -41,8 +40,7 @@ export function es6() {
         }
         return i
     }
-    o.constants = constants
-    o.scope = scope
+    let o = {constants, scope}
 
     return o
 }

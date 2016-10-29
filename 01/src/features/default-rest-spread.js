@@ -44,10 +44,8 @@ export function es6() {
         return x.join(',')
     }
 
-    function spread(arr) {
-        let result = 0
-        arr.map(value => result += value)
-        return result
+    function spread(x = 0, y = 0, z = 0) {
+        return x + y + z
     }
 
     return {

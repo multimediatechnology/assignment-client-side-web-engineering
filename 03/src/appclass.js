@@ -1,7 +1,7 @@
-import $ from 'jquery'
-import Handlebars from 'handlebars'
-import {ENTER_KEY, ESCAPE_KEY} from './consts'
-import * as util from './util'
+import * as util from './util';
+import {ENTER_KEY, ESCAPE_KEY} from './consts';
+import $ from 'jquery';
+import Handlebars from 'handlebars';
 
 export default class Appclass {
     constructor() {
@@ -9,6 +9,7 @@ export default class Appclass {
         this.cacheElements();
         this.bindEvents();
 
+        /* global Router*/
         new Router({
             '/:filter': function(filter) {
                 this.filter = filter;
@@ -30,7 +31,7 @@ export default class Appclass {
         this.$clearBtn = this.$footer.find('#clear-completed');
     }
     bindEvents() {
-        var list = this.$todoList;
+        const list = this.$todoList;
         this.$newTodo.on('keyup', this.create.bind(this));
         this.$toggleAll.on('change', this.toggleAll.bind(this));
         this.$footer.on('click', '#clear-completed', this.destroyCompleted.bind(this));
@@ -41,28 +42,29 @@ export default class Appclass {
         list.on('click', '.destroy', this.destroy.bind(this));
     }
     render() {
-        var todos = this.getFilteredTodos();
-        this.$todoList.html(this.todoTemplate(todos));
-        this.$main.toggle(todos.length > 0);
-        this.$toggleAll.prop('checked', this.getActiveTodos().length === 0);
-        this.renderFooter();
-        this.$newTodo.focus();
-        util.store('todos-jquery', this.todos);
-    }
+            const todos = this.getFilteredTodos();
+            this.$todoList.html(this.todoTemplate(todos));
+            this.$main.toggle(todos.length > 0);
+            this.$toggleAll.prop('checked', this.getActiveTodos().length === 0);
+            this.renderFooter();
+            this.$newTodo.focus();
+            util.store('todos-jquery', this.todos);
+        }
+        /*eslint sort-vars: ["error", { "ignoreCase": true }]*/
     renderFooter() {
-        var todoCount = this.todos.length;
-        var activeTodoCount = this.getActiveTodos().length;
-        var template = this.footerTemplate({
-            activeTodoCount: activeTodoCount,
-            activeTodoWord: util.pluralize(activeTodoCount, 'item'),
-            completedTodos: todoCount - activeTodoCount,
-            filter: this.filter
-        });
+        const activeTodoCount = this.getActiveTodos().length,
+            todoCount = this.todos.length,
+            template = this.footerTemplate({
+                activeTodoCount,
+                activeTodoWord: util.pluralize(activeTodoCount, 'item'),
+                completedTodos: todoCount - activeTodoCount,
+                filter: this.filter
+            });
 
         this.$footer.toggle(todoCount > 0).html(template);
     }
     toggleAll(e) {
-        var isChecked = $(e.target).prop('checked');
+        const isChecked = $(e.target).prop('checked');
 
         this.todos.forEach(function(todo) {
             todo.completed = isChecked;
@@ -92,35 +94,37 @@ export default class Appclass {
         return this.todos;
     }
     destroyCompleted() {
-            this.todos = this.getActiveTodos();
-            this.filter = 'all';
-            this.render();
-        }
-        // accepts an element from inside the `.item` div and
-        // returns the corresponding index in the `todos` array
-    indexFromEl(el) {
-        var id = $(el).closest('li').data('id');
-        var todos = this.todos;
-        var i = todos.length;
+        this.todos = this.getActiveTodos();
+        this.filter = 'all';
+        this.render();
+    }
 
-        while (i--) {
+    // accepts an element from inside the `.item` div and
+    // returns the corresponding index in the `todos` array
+    indexFromEl(el) {
+        const id = $(el).closest('li').
+        data('id'),
+            todos = this.todos;
+
+
+        for (let i = todos.length - 1; i >= 0; i--) {
             if (todos[i].id === id) {
                 return i;
             }
         }
     }
     create(e) {
-        var $input = $(e.target);
-        var val = $input.val().trim();
+        const $input = $(e.target),
+            val = $input.val().trim();
 
         if (e.which !== ENTER_KEY || !val) {
             return;
         }
 
         this.todos.push({
+            completed: false,
             id: util.uuid(),
-            title: val,
-            completed: false
+            title: val
         });
 
         $input.val('');
@@ -128,12 +132,15 @@ export default class Appclass {
         this.render();
     }
     toggle(e) {
-        var i = this.indexFromEl(e.target);
+        const i = this.indexFromEl(e.target);
         this.todos[i].completed = !this.todos[i].completed;
         this.render();
     }
     edit(e) {
-        var $input = $(e.target).closest('li').addClass('editing').find('.edit');
+        const $input = $(e.target).
+        closest('li').
+        addClass('editing').
+        find('.edit');
         $input.val($input.val()).focus();
     }
     editKeyup(e) {
@@ -146,9 +153,9 @@ export default class Appclass {
         }
     }
     update(e) {
-        var el = e.target;
-        var $el = $(el);
-        var val = $el.val().trim();
+        const el = e.target;
+        const $el = $(el);
+        const val = $el.val().trim();
 
         if ($el.data('abort')) {
             $el.data('abort', false);
@@ -156,7 +163,7 @@ export default class Appclass {
             return;
         }
 
-        var i = this.indexFromEl(el);
+        const i = this.indexFromEl(el);
 
         if (val) {
             this.todos[i].title = val;

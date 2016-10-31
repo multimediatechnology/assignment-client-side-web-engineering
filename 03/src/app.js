@@ -1,4 +1,5 @@
-import Appclass from './appclass'
-import './register-handlebars'
+import './register-handlebars';
+import Appclass from './appclass';
 
-let App = new Appclass()
+ /* eslint-disable no-new */
+new Appclass();

@@ -1,0 +1,17 @@
+{
+  "name": "choochoo",
+  "version": "1.0.0",
+  "description": "choochoochoo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "choo": "^3.3.0",
+    "emoji": "^0.3.2",
+    "es2020": "^1.1.9",
+    "node-emoji": "^1.4.1"
+  }
+}

@@ -15,7 +15,7 @@ module.exports = {
                 state.trains.push(state.emoji[0])
                 state.clicks++
             } else {
-                if (state.clicks > 5) {
+                if (state.clicks >= 5) {
                     state.message = "It's way to heavy!"
                 }
                 state.trains.push(state.emoji[1])

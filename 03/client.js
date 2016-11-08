@@ -24,7 +24,7 @@ app.model({
         state.wagen_gleis.pop()
       }
       if(state.wagen_zug.length > 6){
-        return{warning: 'ERMAGERD, die Lokomotive ist nur für fünf Wagen ausgelegt!'}
+        return{warning: 'ERMAGERD! ' + emoji.get('scream_cat') + ' die Lokomotive ist nur für fünf Wagen ausgelegt!'}
       }
     },
     /*

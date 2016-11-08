@@ -1,6 +1,5 @@
 //import helper
-import helper from './helper'
-helper()
+import './helper'
 
 //import app_class
 import Apps from './apps'

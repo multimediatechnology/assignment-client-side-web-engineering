@@ -20,9 +20,7 @@ export function es6() {
     list: [1, 2, 3, 4, 5],
     result: 0,
     sum: function() {
-      this.list.map((val) => {
-        this.result += val
-      })
+      this.list.map((val) => this.result += val)
     }
   }
 

@@ -27,6 +27,6 @@ export default function() {
     myMap.get('second').should.eql(2)
   })
 
-  it.skip('should show Map/Set behavior in ES6', () => {
+  it('should show Map/Set behavior in ES6', () => {
   })
 }

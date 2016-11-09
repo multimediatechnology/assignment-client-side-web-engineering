@@ -25,4 +25,23 @@ export function es5() {
 }
 
 export function es6() {
+  let o = {}
+
+  function constants(val) {
+    return Math.pow(2, val)
+  }
+
+  function scope(n) {
+    let sum = 0
+    for (let i = 0; i < n; i += 1) {
+      sum += i
+    }
+    return i
+  }
+
+  o.constants = constants
+  o.scope = scope
+  
+  return o
+
 }

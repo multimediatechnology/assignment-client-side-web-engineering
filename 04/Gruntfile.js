@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     browserify: {
       watch: {
         files: {
-          './dist/app.js': ['./src/app.js']
+          './dist/public/client.js': ['./src/public/client.js'],
         },
         options: {
           transform: ['hbsfy', 'babelify']
@@ -23,7 +23,6 @@ module.exports = function(grunt) {
       dist: {
         files: {
           './dist/public/client.js': ['./src/public/client.js'],
-          './dist/app.js': ['./src/app.js'],
         },
         options: {
           transform: ['hbsfy', 'babelify', 'uglifyify']
@@ -35,36 +34,6 @@ module.exports = function(grunt) {
       dist: ['./dist']
     },
 
-    connect: {
-      server: {
-        options: {
-          base: './dist/public',
-          hostname: '0.0.0.0',
-          livereload: true,
-          open: true,
-          port: 3000,
-          middleware: (connect, options) => {
-            const middlewares = []
-
-            if (!Array.isArray(options.base)) {
-              options.base = [options.base]
-            }
-
-            options.base.forEach(function(base) {
-              middlewares.push(serveStatic(base))
-            })
-
-            // default: index.html
-            middlewares.push((req, res) => {
-              fs
-                .createReadStream(`${options.base}/index.html`)
-                .pipe(res)
-            })
-            return middlewares
-          }
-        }
-      }
-    },
 
     copy: {
       dist: {
@@ -78,7 +47,7 @@ module.exports = function(grunt) {
           },
           {
             expand: true,
-            cwd: 'src/styles',
+            cwd: 'src/public/styles',
             src: '*.css',
             dest: './dist/public/styles'
           },
@@ -96,11 +65,36 @@ module.exports = function(grunt) {
             src: 'public/*.html',
             dest: './dist/'
           },
+          // js
+          {
+            expand: true,
+            cwd: './node_modules/chessboardjs/www/releases/0.3.0/js',
+            src: 'chessboard-0.3.0.min.js',
+            dest: './dist/public/lib/'
+          },
+          {
+            expand: true,
+            cwd: './node_modules/chess.js',
+            src: 'chess.min.js',
+            dest: './dist/public/lib/'
+          },
           {
             expand: true,
             cwd: './node_modules/jquery/dist/',
-            src: '**/*',
-            dest: './dist/public/lib/jquery'
+            src: 'jquery.min.js',
+            dest: './dist/public/lib/'
+          },
+          {
+            expand: true,
+            cwd: './node_modules/socket.io-client/',
+            src: 'socket.io.min.js',
+            dest: './dist/public/lib/'
+          },
+          {
+            expand: true,
+            cwd: 'src',
+            src: 'app.js',
+            dest: './dist/'
           },
         ]
 
@@ -126,6 +120,6 @@ module.exports = function(grunt) {
   })
 
   grunt.registerTask('default', ['clean', 'copy', 'browserify:dist'])
-  grunt.registerTask('start', ['default', 'connect', 'watch'])
+  grunt.registerTask('start', ['default', 'watch'])
 
 }

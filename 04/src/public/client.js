@@ -1,15 +1,34 @@
-import config from './config'
-import ChessBoard from 'chessboardjs'
-import Game from 'chess.js'
+var socket = io();
+var board;
+var chess;
 
-const chessboardconf = {
+
+window.onload = function() {
+    initGame();
+};
+
+var initGame = function() {
+    var cfg = {
         draggable: true,
         position: 'start',
         onDrop: handleMove,
-    },
-    board = new ChessBoard('gameBoard', chessboardconf),
-    game = new Game.Chess();
+    };
 
-const handleMove = function(source, target) {
-    const move = game.move({ from: source, to: target });
-}
+    chess = new Chess();
+    board = new ChessBoard('gameBoard', cfg);
+};
+
+var handleMove = function(source, target) {
+    var move = chess.move({
+        from: source,
+        to: target
+    });
+    console.log(move)
+    if (move === null) return 'snapback';
+    else socket.emit('move', move);
+};
+
+socket.on('move', function(msg) {
+    chess.move(msg);
+    board.position(chess.fen()); // fen is the board layout
+});

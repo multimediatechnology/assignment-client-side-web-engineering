@@ -28,6 +28,7 @@
     "jquery": "^3.1.1",
     "load-grunt-tasks": "^3.3.0",
     "serve-static": "^1.11.1",
+    "socket.io": "^1.6.0",
     "socket.io-client": "^1.5.1",
     "time-grunt": "^1.2.1",
     "uglifyify": "^3.0.4"

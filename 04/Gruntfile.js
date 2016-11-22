@@ -86,7 +86,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: './node_modules/chessboardjs/www/img',
             src: '**/*',
-            dest: './dist/images'
+            dest: './dist/img'
           },
           // html
           {
@@ -94,7 +94,13 @@ module.exports = function(grunt) {
             cwd: 'src',
             src: '*.html',
             dest: './dist/'
-          }
+          },
+          {
+            expand: true,
+            cwd: './node_modules/jquery/dist/',
+            src: '**/*',
+            dest: './dist/lib/jquery'
+          },
         ]
 
       }

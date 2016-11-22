@@ -22,7 +22,8 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          './dist/app.js': ['./src/app.js']
+          './dist/public/client.js': ['./src/public/client.js'],
+          './dist/app.js': ['./src/app.js'],
         },
         options: {
           transform: ['hbsfy', 'babelify', 'uglifyify']
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          base: './dist',
+          base: './dist/public',
           hostname: '0.0.0.0',
           livereload: true,
           open: true,
@@ -73,33 +74,33 @@ module.exports = function(grunt) {
             expand: true,
             cwd: './node_modules/chessboardjs/www/css',
             src: 'chessboard.css',
-            dest: './dist/styles'
+            dest: './dist/public/styles'
           },
           {
             expand: true,
             cwd: 'src/styles',
             src: '*.css',
-            dest: './dist/styles'
+            dest: './dist/public/styles'
           },
           // images
           {
             expand: true,
             cwd: './node_modules/chessboardjs/www/img',
             src: '**/*',
-            dest: './dist/img'
+            dest: './dist/public/img'
           },
           // html
           {
             expand: true,
             cwd: 'src',
-            src: '*.html',
+            src: 'public/*.html',
             dest: './dist/'
           },
           {
             expand: true,
             cwd: './node_modules/jquery/dist/',
             src: '**/*',
-            dest: './dist/lib/jquery'
+            dest: './dist/public/lib/jquery'
           },
         ]
 
@@ -108,7 +109,7 @@ module.exports = function(grunt) {
 
     watch: {
       static: {
-        files: ['./src/**/*.css', './src/*.html'],
+        files: ['./src/**/*.css', './src/public/*.html'],
         tasks: ['copy'],
         options: {
           livereload: true

@@ -23,7 +23,6 @@ var handleMove = function(source, target) {
         from: source,
         to: target
     });
-    console.log(move)
     if (move === null) return 'snapback';
     else socket.emit('move', move);
 };

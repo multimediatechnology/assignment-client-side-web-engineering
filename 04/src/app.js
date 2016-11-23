@@ -6,7 +6,7 @@ const express = require('express'),
     DIR = path.join(__dirname, 'public'),
     server = express()
     .use(express.static(DIR))
-    .use((req, res) => res.sendFile(DIR + 'index.html'))
+    .use((req, res) => res.sendFile(DIR + '/index.html'))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`)),
     io = socketIO(server);
 

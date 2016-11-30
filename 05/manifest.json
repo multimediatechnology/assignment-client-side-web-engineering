@@ -1,0 +1,70 @@
+{
+    "manifest_version": 2,
+    "name": "Giphy Downloader",
+    "description": "Giphy Downloader",
+    "version": "1.0.0",
+    "browser_action": {
+        "default_icon": {
+            "19": "assets/icons/icon19.png",
+            "38": "assets/icons/icon38.png"
+        },
+        "default_popup": "index.html"
+    },
+    // "background": {
+    //     "scripts": [
+    //         "background.js"
+    //     ],
+    //     "persistent": false
+    // },
+    "icons": {
+        "16": "assets/icons/icon16.png",
+        "48": "assets/icons/icon48.png",
+        "128": "assets/icons/icon128.png"
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "permissions": ["downloads", "http://giphy.com/*"]
+}
+
+
+
+// {
+//     "manifest_version": 2,
+//     "name": „app name ",
+//     "description": „app description ",
+//     "version": "1.0.0",
+//     "browser_action": {
+//         "default_icon": {
+//             "19": "assets/icons/icon19.png",
+//             "38": "assets/icons/icon38.png"
+//         },
+//         "default_popup": "index.html"
+//     },
+//     "background": {
+//         "scripts": [
+//             "scripts/background.js"
+//         ],
+//         "persistent": false
+//     },
+//     "icons": {
+//         "16": "assets/icons/icon16.png",
+//         "48": "assets/icons/icon48.png",
+//         "128": "assets/icons/icon128.png"
+//     },
+//     "permissions": [
+//         "downloads",
+//         "downloads.shelf",
+//         "notifications",
+//         "storage",
+//         "https://9gag.com/*“
+//     ],
+//     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+//     "content_scripts": [{
+//         "matches": [
+//             "https://9gag.com/*"
+//         ],
+//         "css": [],
+//         "js": [
+//             "scripts/extension.js"
+//         ]
+//     }]
+// }

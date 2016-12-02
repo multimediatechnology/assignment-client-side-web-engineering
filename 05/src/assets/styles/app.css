@@ -1,8 +1,53 @@
 body {
     width: 200px;
+    margin: 0;
+    background: #121212;
+    min-height: 34px;
 }
 
 img {
-    max-width: 100px;
+    width: 100%;
     cursor: pointer;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    outline: none;
+    width: 176px;
+    height: 30px;
+    background: #EFEEEE;
+    color: #404d5b;
+    font-weight: 700;
+    font-size: 14px;
+    position: fixed;
+    padding: 0 10px;
+    font-family: 'interface', 'Helvetica Neue', helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    z-index: 5;
+}
+
+button {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border: 0;
+    font-size: 14px;
+    height: 35px;
+    font-weight: 600;
+    background: #6157ff;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover {
+	background: #4157ff;
 }

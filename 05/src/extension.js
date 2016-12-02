@@ -1,16 +1,17 @@
-var visibleGifs = [];
-var apiKey = 'dc6zaTOxFJmzC';
-var limit = 20;
+let visibleGifs = [];
+const apiKey = 'dc6zaTOxFJmzC';
+const limit = 20;
 
 function showGifs(response) {
-    var responseJson = JSON.parse(response);
+    const responseJson = JSON.parse(response);
     visibleGifs = responseJson['data'];
     $('#gifs').empty();
-    for (var i = 0; i < visibleGifs.length; ++i) {
-        var img = $('<img/>')
+    for (let i = 0; i < visibleGifs.length; ++i) {
+        $('<img/>')
             .attr('src', visibleGifs[i]['images']['fixed_width_downsampled']['url'])
-            .click(img, function() {
-                var src = $(this).attr('src')
+            .attr('dlink', visibleGifs[i]['images']['original']['url'])
+            .click($(this), function() {
+                let src = $(this).attr('dlink')
                 downloadGif(src)
             })
             .appendTo('#gifs')
@@ -20,28 +21,31 @@ function showGifs(response) {
 }
 
 function downloadAll() {
-    for (var i = 0; i < visibleGifs.length; ++i) {
+    const filename = $('#filter').val();
+    for (let i = 0; i < visibleGifs.length; ++i) {
         chrome.downloads.download({
-            url: visibleGifs[i]['images']['fixed_width_downsampled']['url']
+            url: visibleGifs[i]['images']['original']['url'],
+            filename: filename + '.gif'
         });
     }
     window.close();
 }
 
 function downloadGif(element) {
-    chrome.downloads.download({ url: element });
+    const filename = $('#filter').val();
+    chrome.downloads.download({ url: element, filename: filename + '.gif' });
 }
 
 function getGifs() {
-    var filterValue = $('#filter').val();
+    let filterValue = $('#filter').val();
     filterValue = filterValue.replace(' ', '+').replace(/\W+/g, '');
-    var url = 'http://api.giphy.com/v1/gifs/search?q=' + filterValue + '&api_key=' + apiKey + '&limit=' + limit;
+    const url = 'http://api.giphy.com/v1/gifs/search?q=' + filterValue + '&api_key=' + apiKey + '&limit=' + limit;
     httpGetAsync(url, showGifs);
 }
 
 
 function httpGetAsync(theUrl, callback) {
-    var xmlHttp = new XMLHttpRequest();
+    const xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             callback(xmlHttp.responseText);

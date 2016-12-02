@@ -19,10 +19,17 @@ li {
     list-style: none;
 }
 
+.search {
+    position: fixed;
+    z-index: 6;
+    width: 34px;
+    right: 0;
+}
+
 input {
     outline: none;
-    width: 176px;
-    height: 30px;
+    width: 180px;
+    height: 34px;
     background: #EFEEEE;
     color: #404d5b;
     font-weight: 700;
@@ -33,6 +40,7 @@ input {
     letter-spacing: 1px;
     font-weight: 300;
     z-index: 5;
+    border: 0;
 }
 
 button {
@@ -49,5 +57,5 @@ button {
 }
 
 button:hover {
-	background: #4157ff;
+    background: #4157ff;
 }

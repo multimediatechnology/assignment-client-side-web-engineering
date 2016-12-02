@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <head>
+    <script src='lib/jquery.min.js'></script>
     <script src='extension.js'></script>
     <link rel="stylesheet" type="text/css" href="assets/styles/app.css">
 </head>
@@ -9,14 +10,7 @@
     <input type=text id=filter placeholder=Filter>
     <br>
     <button id=download>Download All!</button>
-    <table id=links>
-        <tr>
-            <th>
-                <input type=checkbox id=toggle_all>
-            </th>
-            <th align=left>URL</th>
-        </tr>
-    </table>
+    <ul id=gifs></ul>
 </body>
 
 </html>

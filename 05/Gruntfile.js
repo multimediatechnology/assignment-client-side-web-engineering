@@ -29,18 +29,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        uglify: {
-            options: {
-                // the banner is inserted at the top of the output
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-            },
-            dist: {
-                files: {
-                    './dist/extension.js': ['./src/extension.js']
-                }
-            }
-        },
-
         clean: {
             dist: ['./dist']
         },
@@ -114,7 +102,7 @@ module.exports = function(grunt) {
         }
     })
 
-    grunt.registerTask('default', ['clean', 'copy', 'browserify:dist', 'uglify'])
+    grunt.registerTask('default', ['clean', 'copy', 'browserify:dist'])
     grunt.registerTask('start', ['default', 'watch'])
 
 }

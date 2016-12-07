@@ -1,46 +1,28 @@
 export function es5() {
-    var o = {}
-    var consts = {}
+  var o = {}
+  var consts = {}
 
-    Object.defineProperty(consts, 'BASE', {
-        value: 2
-    })
+  Object.defineProperty(consts, 'BASE', {
+    value: 2
+  })
 
-    function constants(val) {
-        return Math.pow(consts.BASE, val)
+  function constants(val) {
+    return Math.pow(consts.BASE, val)
+  }
+
+  function scope(n) {
+    var sum = 0
+    for (var i = 0; i < n; i += 1) {
+      sum += i
     }
+    return i
+  }
 
-    function scope(n) {
-        var sum = 0
-        for (var i = 0; i < n; i += 1) {
-            sum += i
-        }
-        return i
-    }
+  o.constants = constants
+  o.scope = scope
 
-    o.constants = constants
-    o.scope = scope
-
-    return o
+  return o
 }
 
 export function es6() {
-
-    const power = 2
-
-    function constants(val) {
-
-        return Math.pow(power, val)
-    }
-
-    function scope(n)  {
-        let sum = 0
-        for (let i = 0; i < n; i += 1) {
-            sum += i
-        }
-        return i
-    }
-    let o = {constants, scope}
-
-    return o
 }

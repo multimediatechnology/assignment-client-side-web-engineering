@@ -1,62 +1,171 @@
 body {
-  padding-top: 2em;
+    padding-top: 2em;
 }
 
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #f0f0f0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #f0f0f0;
 }
+
+svg {
+    margin: 0 auto;
+    display: block;
+}
+
 
 /* Styles */
-.style-gradient1 {
-  fill: url(#gradient1);
+
+.green1 {
+    fill: #40DF8A;
 }
 
-#pattern1 rect {
-  fill: #ff0000;
+.green2 {
+    fill: #1AC956;
 }
 
-#pattern1 line {
-  stroke: #0000ff;
+.green3 {
+    fill: #B5FFCE;
 }
 
-.style-pattern1 {
-  fill: url(#pattern1);
+.green4 {
+    fill: #4FE482;
 }
+
+.green5 {
+    fill: #0ABF5E;
+}
+
+.green6 {
+    fill: #045F2E;
+}
+
+.green7 {
+    fill: #298F59;
+}
+
+.eye1 {
+    fill: black;
+}
+
+.eye2 {
+    fill: #343434;
+}
+
+.eye3 {
+    fill: white;
+}
+
+.shadow {
+    /*fill: #525252;*/
+    fill: url(#shadow);
+}
+
 
 /* Animation */
+
 .animation-pattern1 {
-  fill: url(#pattern1);
-  animation: fill-opacity 2s ease-in-out infinite alternate;
+    fill: url(#pattern1);
+    animation: fill-opacity 2s ease-in-out infinite alternate;
 }
 
 @keyframes fill-opacity {
-  0% {
-    fill-opacity: 0.0;
-  }
-  100% {
-    fill-opacity: 1.0;
-  }
+    0% {
+        fill-opacity: 0.0;
+    }
+    100% {
+        fill-opacity: 1.0;
+    }
 }
 
-.animation-pattern2 {
-  fill: url(#pattern1);
-  width: 50%;
-  animation: byebye 2s ease infinite;
+.change1 {
+    animation: change1 2s ease-in-out infinite alternate;
 }
 
-@keyframes byebye {
-  0% {
-    width: 50%;
-  }
-  50% {
-    width: 100%;
-    fill-opacity: 1.0;
-  }
-  100% {
-    width: 100%;
-    fill-opacity: 0.0;
-  }
+.change2 {
+    animation: change2 2s ease-in-out infinite alternate;
+}
+
+.change3 {
+    animation: change3 2s ease-in-out infinite alternate;
+}
+
+.change4 {
+    animation: change4 2s ease-in-out infinite alternate;
+}
+
+.change5 {
+    animation: change5 2s ease-in-out infinite alternate;
+}
+
+.change6 {
+    animation: change6 2s ease-in-out infinite alternate;
+}
+
+.change7 {
+    animation: change7 2s ease-in-out infinite alternate;
+}
+
+@keyframes change1 {
+    0% {
+        fill: #40DF8A;
+    }
+    100% {
+        fill: #EF3030;
+    }
+}
+
+@keyframes change2 {
+    0% {
+        fill: #1AC956;
+    }
+    100% {
+        fill: #CE1E1E;
+    }
+}
+
+@keyframes change3 {
+    0% {
+        fill: #B5FFCE;
+    }
+    100% {
+        fill: #F8AFAF;
+    }
+}
+
+@keyframes change4 {
+    0% {
+        fill: #4FE482;
+    }
+    100% {
+        fill: #F76363;
+    }
+}
+
+@keyframes change5 {
+    0% {
+        fill: #0ABF5E;
+    }
+    100% {
+        fill: #DD4545;
+    }
+}
+
+@keyframes change6 {
+    0% {
+        fill: #045F2E;
+    }
+    100% {
+        fill: #610C0C;
+    }
+}
+
+@keyframes change7 {
+    0% {
+        fill: #298F59;
+    }
+    100% {
+        fill: #703030;
+    }
 }

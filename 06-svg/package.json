@@ -1,29 +1,28 @@
 {
   "name": "svg",
   "version": "1.0.0",
-  "description": "SVG",
-  "main": "src/client.js",
+  "description": "SVG SVG SVG",
+  "main": "app.js",
   "scripts": {
-    "build": "./bin/build",
-    "start": "budo src/client.js -p 8080 --pushstate --live --open -- -t es2020 -t sheetify/transform",
-    "test": "echo \"no tests\""
+    "build": "grunt",
+    "start": "grunt start"
   },
-  "keywords": [
-    "choo"
-  ],
-  "author": "Hannes Moser <hannes@impossiblearts.com>",
-  "license": "MIT",
+  "author": "Martin Gassner",
+  "license": "ISC",
   "devDependencies": {
-    "babel-preset-es2020": "^1.0.2",
-    "budo": "^9.2.1",
-    "bulkify": "^1.4.2",
-    "choo": "^3.3.0",
-    "choo-log": "^2.0.1",
-    "envify": "^3.4.1",
-    "es2020": "^1.1.9",
-    "sheetify": "^5.1.1",
-    "uglifyify": "^3.0.4",
-    "unassertify": "^2.0.3",
-    "yo-yoify": "^3.4.1"
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-php": "^1.5.1",
+    "load-grunt-tasks": "^3.3.0",
+    "serve-static": "^1.11.1",
+    "time-grunt": "^1.2.1",
+    "uglifyify": "^3.0.4"
   }
 }

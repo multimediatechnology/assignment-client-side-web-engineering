@@ -1,0 +1,113 @@
+body {
+  padding-top: 2em; }
+
+svg {
+  margin: 0 auto;
+  display: block; }
+
+nav {
+  text-align: center; }
+
+/* Styles */
+.green1 {
+  fill: #40DF8A; }
+
+.green2 {
+  fill: #1AC956; }
+
+.green3 {
+  fill: #B5FFCE; }
+
+.green4 {
+  fill: #4FE482; }
+
+.green5 {
+  fill: #0ABF5E; }
+
+.green6 {
+  fill: #045F2E; }
+
+.green7 {
+  fill: #298F59; }
+
+.eye1 {
+  fill: black; }
+
+.eye2 {
+  fill: #343434; }
+
+.eye3 {
+  fill: white; }
+
+.shadow {
+  /*fill: #525252;*/
+  fill: url(#shadow); }
+
+/* Animation */
+.animation-pattern1 {
+  fill: url(#pattern1);
+  animation: fill-opacity 2s ease-in-out infinite alternate; }
+
+@keyframes fill-opacity {
+  0% {
+    fill-opacity: 0.0; }
+  100% {
+    fill-opacity: 1.0; } }
+.change1 {
+  animation: change1 2s ease-in-out infinite alternate; }
+
+.change2 {
+  animation: change2 2s ease-in-out infinite alternate; }
+
+.change3 {
+  animation: change3 2s ease-in-out infinite alternate; }
+
+.change4 {
+  animation: change4 2s ease-in-out infinite alternate; }
+
+.change5 {
+  animation: change5 2s ease-in-out infinite alternate; }
+
+.change6 {
+  animation: change6 2s ease-in-out infinite alternate; }
+
+.change7 {
+  animation: change7 2s ease-in-out infinite alternate; }
+
+@keyframes change1 {
+  0% {
+    fill: #40DF8A; }
+  100% {
+    fill: #EF3030; } }
+@keyframes change2 {
+  0% {
+    fill: #1AC956; }
+  100% {
+    fill: #CE1E1E; } }
+@keyframes change3 {
+  0% {
+    fill: #B5FFCE; }
+  100% {
+    fill: #F8AFAF; } }
+@keyframes change4 {
+  0% {
+    fill: #4FE482; }
+  100% {
+    fill: #F76363; } }
+@keyframes change5 {
+  0% {
+    fill: #0ABF5E; }
+  100% {
+    fill: #DD4545; } }
+@keyframes change6 {
+  0% {
+    fill: #045F2E; }
+  100% {
+    fill: #610C0C; } }
+@keyframes change7 {
+  0% {
+    fill: #298F59; }
+  100% {
+    fill: #703030; } }
+
+/*# sourceMappingURL=main.css.map */

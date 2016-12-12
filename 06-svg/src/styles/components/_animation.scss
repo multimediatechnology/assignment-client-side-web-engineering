@@ -1,0 +1,91 @@
+
+.change1 {
+    animation: change1 2s ease-in-out infinite alternate;
+}
+
+.change2 {
+    animation: change2 2s ease-in-out infinite alternate;
+}
+
+.change3 {
+    animation: change3 2s ease-in-out infinite alternate;
+}
+
+.change4 {
+    animation: change4 2s ease-in-out infinite alternate;
+}
+
+.change5 {
+    animation: change5 2s ease-in-out infinite alternate;
+}
+
+.change6 {
+    animation: change6 2s ease-in-out infinite alternate;
+}
+
+.change7 {
+    animation: change7 2s ease-in-out infinite alternate;
+}
+
+@keyframes change1 {
+    0% {
+        fill: $green1;
+    }
+    100% {
+        fill: $red1;
+    }
+}
+
+@keyframes change2 {
+    0% {
+        fill: $green2;
+    }
+    100% {
+        fill: $red2;
+    }
+}
+
+@keyframes change3 {
+    0% {
+        fill: $green3;
+    }
+    100% {
+        fill: $red3;
+    }
+}
+
+@keyframes change4 {
+    0% {
+        fill: $green4;
+    }
+    100% {
+        fill: $red4;
+    }
+}
+
+@keyframes change5 {
+    0% {
+        fill: $green5;
+    }
+    100% {
+        fill: $red5;
+    }
+}
+
+@keyframes change6 {
+    0% {
+        fill: $green6;
+    }
+    100% {
+        fill: $red6;
+    }
+}
+
+@keyframes change7 {
+    0% {
+        fill: $green7;
+    }
+    100% {
+        fill: $red7;
+    }
+}

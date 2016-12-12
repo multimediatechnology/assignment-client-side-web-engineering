@@ -1,0 +1,53 @@
+/* Main stuff */
+.text--transparent {
+  fill: transparent;
+}
+.anim-shape {
+  -webkit-transform-origin: 0x 150px;
+  transform-origin: 0x 150px;
+  -webkit-transform: scale(0, 1) translate(0, 0);
+  transform: scale(0, 1) translate(0, 0);
+  -webkit-animation: moving-panel 3s infinite alternate;
+  animation: moving-panel 3s infinite alternate;
+  .colortext &:nth-child(1) {
+    fill: $red1;
+  }
+  .colortext &:nth-child(2) {
+    fill: $green1;
+  }
+  .colortext &:nth-child(3) {
+    fill: $red2;
+  }
+  .colortext &:nth-child(4) {
+    fill: $green2;
+  }
+  .colortext &:nth-child(5) {
+    fill: $red3;
+  }
+}
+.shadow {
+  -webkit-transform: translate(3px, 3px);
+  transform: translate(3px, 3px);
+}
+.anim-shape--shadow {
+  fill: #000;
+  fill-opacity: 0.2;
+}
+@-webkit-keyframes moving-panel {
+  100% {
+    -webkit-transform: scale(1, 1) translate(20px, 0);
+    transform: scale(1, 1) translate(20px, 0);
+  }
+}
+@keyframes moving-panel {
+  100% {
+    -webkit-transform: scale(1, 1) translate(20px, 0);
+    transform: scale(1, 1) translate(20px, 0);
+  }
+}
+
+.content {
+  font-family: 'Berkshire Swash';
+  font-size: 7em;
+}
+

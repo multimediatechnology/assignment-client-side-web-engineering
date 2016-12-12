@@ -60,3 +60,5 @@
 </svg>
 
 <button id="button">Arouse the Frog!</button>
+
+<script type="text/javascript" src="js/main.js"></script>

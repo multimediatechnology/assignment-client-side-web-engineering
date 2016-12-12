@@ -1,0 +1,17 @@
+nav {
+    text-align: center;
+    padding: 1.5em 0;
+    background: black;
+    margin-bottom: 2em;
+    a {
+        padding: 0 10px;
+        vertical-align: -webkit-baseline-middle;
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1em;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+}

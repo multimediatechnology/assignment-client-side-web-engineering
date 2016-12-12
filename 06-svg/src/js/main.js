@@ -6,6 +6,7 @@ var button = document.getElementById("button"),
     stop = false;
 
 button.addEventListener('click', function() {
+    button.style.display = 'none';
     animationMouthStart.beginElement();
     timeoutMouth();
     animationEyeStart1.beginElement();

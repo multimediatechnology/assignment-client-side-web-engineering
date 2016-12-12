@@ -6,3 +6,8 @@
 node_modules/
 npm_debug.log
 
+# Sass
+.sass-cache/
+
+# Dist
+dist/

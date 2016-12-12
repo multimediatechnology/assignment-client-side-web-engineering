@@ -1,28 +1,25 @@
 {
-  "name": "svg",
-  "version": "1.0.0",
-  "description": "SVG SVG SVG",
-  "main": "app.js",
-  "scripts": {
-    "build": "grunt",
-    "start": "grunt start"
-  },
-  "author": "Martin Gassner",
-  "license": "ISC",
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^1.0.2",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-php": "^1.5.1",
-    "load-grunt-tasks": "^3.3.0",
-    "serve-static": "^1.11.1",
-    "time-grunt": "^1.2.1",
-    "uglifyify": "^3.0.4"
-  }
+    "name": "svg",
+    "version": "1.0.0",
+    "description": "SVG SVG SVG",
+    "main": "app.js",
+    "scripts": {
+        "build": "grunt",
+        "start": "grunt start"
+    },
+    "author": "Martin Gassner",
+    "license": "ISC",
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-cli": "^1.2.0",
+        "grunt-contrib-clean": "^1.0.0",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^1.0.2",
+        "grunt-contrib-sass": "^1.0.0",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-php": "^1.5.1",
+        "load-grunt-tasks": "^3.3.0",
+        "serve-static": "^1.11.1",
+        "time-grunt": "^1.2.1"
+    }
 }

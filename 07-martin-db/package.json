@@ -1,0 +1,32 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "DB",
+  "main": "src/client.js",
+  "scripts": {
+    "build": "./bin/build",
+    "start": "budo src/client.js -p 8080 --pushstate --live --open -- -t es2020 -t sheetify/transform",
+    "test": "echo \"no tests\""
+  },
+  "keywords": [
+    "choo"
+  ],
+  "author": "Hannes Moser <hannes@impossiblearts.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "add-cors-to-couchdb": "0.0.6",
+    "babel-preset-es2020": "^1.0.2",
+    "budo": "^9.2.1",
+    "bulkify": "^1.4.2",
+    "choo": "^3.3.0",
+    "choo-log": "^2.0.1",
+    "envify": "^3.4.1",
+    "es2020": "^1.1.9",
+    "pouchdb": "^6.1.0",
+    "sheetify": "^5.1.1",
+    "uglifyify": "^3.0.4",
+    "unassertify": "^2.0.3",
+    "uuid": "^3.0.1",
+    "yo-yoify": "^3.4.1"
+  }
+}
